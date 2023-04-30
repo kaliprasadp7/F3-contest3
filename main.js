@@ -68,7 +68,7 @@ function saveInfo() {
 
     localStorage.setItem('user', JSON.stringify(obj));
 
-    window.location.href = '/profile.html';
+    window.location.href = 'profile.html';
     displayInfo();
 }
 
