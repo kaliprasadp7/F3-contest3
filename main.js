@@ -67,9 +67,9 @@ function saveInfo() {
     // console.log(obj);
 
     localStorage.setItem('user', JSON.stringify(obj));
-    displayInfo();
 
     window.location.href = '/profile.html';
+    displayInfo();
 }
 
 // to display information in profile page
@@ -80,6 +80,7 @@ function displayInfo() {
         window.location.href = '/index.html';
         return;
     }
+
     profilediv.innerHTML = `<h1 class="profile-heading">Profile</h1>
     <h1>Full Name: ${temp.name}</h1>
     <h1>Email: ${temp.email}</h1>
