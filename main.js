@@ -8,10 +8,23 @@ const profilediv = document.getElementById("profile");
 const profilenav = document.getElementById("prfile-nav");
 const indexnav = document.getElementById("index-nav");
 
-
-if (localStorage.getItem('user')) { // check if user information is available in localStorage
+// Check if accesstoken exists in local storage and user is trying to access the signup page
+if (localStorage.getItem('user') && window.location.pathname === '/index.html') {
+    // Redirect user to profile page if accesstoken exists and user is trying to access signup page
+    window.location.href = 'profile.html';
     displayInfo();
 }
+else if (localStorage.getItem('user')) { // check if user information is available in localStorage
+    displayInfo();
+}
+
+// Check if accesstoken exists in local storage
+if (!localStorage.getItem('user') && window.location.pathname === '/profile.html') {
+    // Redirect user to signup page if accesstoken does not exist
+    window.location.href = 'index.html';
+  }
+  
+  
 
 
 // to generate 16 bytes of random token 
