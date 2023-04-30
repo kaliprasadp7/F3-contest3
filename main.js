@@ -9,7 +9,10 @@ const profilenav = document.getElementById("prfile-nav");
 const indexnav = document.getElementById("index-nav");
 
 
-// displayInfo();
+if (localStorage.getItem('user')) { // check if user information is available in localStorage
+    displayInfo();
+}
+
 
 // to generate 16 bytes of random token 
 function generateAccessToken() {
@@ -74,7 +77,7 @@ function saveInfo() {
 
 // to display information in profile page
 function displayInfo() {
-    let temp = JSON.parse(localStorage.user);
+    let temp = JSON.parse(localStorage.getItem('user'));
     // If user is not logged in or has no token, redirect to signup page
     if (!temp) {
         window.location.href = '/index.html';
@@ -94,5 +97,5 @@ function logout() {
     // Remove user details from local storage
     localStorage.removeItem('user');
     // Redirect to signup page
-    window.location.href = '/index.html';
+    window.location.href = 'index.html';
 };
